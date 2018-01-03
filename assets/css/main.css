@@ -637,7 +637,10 @@ h2, header nav a, header .kicker, footer .lockup a, #h_small #nav_small a, #h_sm
     margin: 30px 0 0 30px; } }
 
 header {
-  background: url(../img/galway2.jpg) center center;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.35), 
+      rgba(0, 0, 0, 0.35)
+    ), url(../img/galway.jpg) top center;
   background-size: cover; }
   @media only screen and (min-width: 220px) {
     header {
@@ -653,7 +656,7 @@ header {
     margin: 30px 30px 30px; }
     header nav a {
       margin-left: 20px;
-      color: rgba(0, 0, 0, 0.5); }
+      color: rgba(255, 255, 255, 0.75); }
       @media only screen and (min-width: 220px) {
         header nav a {
           display: none; } }
@@ -664,7 +667,7 @@ header {
         color: black; }
   header h1 {
     text-align: center;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
     letter-spacing: 0.05cm;
     margin-bottom: 20px;
@@ -687,7 +690,7 @@ header {
     header h1 span {
       display: inline-block;
       padding: 0.2em 0.5em;
-      border: rgba(0, 0, 0, 0.5) solid 10px; }
+      border: rgba(255, 255, 255, 0.75) solid 10px; }
       @media only screen and (min-width: 220px) {
         header h1 span {
           padding: 0.2em 0.5em; } }
@@ -700,33 +703,165 @@ header {
   header .kicker {
     text-align: center;
     line-height: 1;
-    color: rgba(0, 0, 0, 0.5); }
+    color: rgba(255, 255, 255, 0.75); }
 
 footer {
-  background: url(../img/galway3.jpg) center center;
-  background-size: cover; }
-  footer .lockup {
-    padding: 50px 30px; }
-    footer .lockup::after {
-      clear: both;
-      content: "";
-      display: table; }
-    footer .lockup .content-wrap .copyright {
-      margin: 0;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(0, 0, 0, 0.4); }
-    footer .lockup a {
-      color: rgba(0, 0, 0, 0.6);
-      display: inline-block;
-      margin-right: 30px; }
-      footer .lockup a:hover {
-        color: black; }
+  background: url(../img/galway.jpg) bottom center;
+}
+
+@media only screen and (min-width: 1528px) {
+  footer {
+    background: url(../img/galway.jpg) bottom center;
+    background-size: cover;
+  }
+}
+  
+.content-wrap {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+  
+.content-wrap nav, .content-wrap p {
+  flex: 1;
+  width: 50%;
+}
+  
+.content-wrap nav {
+  min-width: 435px;
+  align-self: flex-start;
+}
+  
+.content-wrap .copyright {
+  align-self: flex-end;
+  text-align: right;
+  min-width: 373px;
+}
+
+footer, footer .lockup {
+  width: 100%;
+}
+
+footer .lockup {
+  padding: 50px 30px; 
+}
+
+footer .lockup::after {
+  clear: both;
+  content: "";
+  display: table; 
+}
+
+footer .lockup .content-wrap .copyright {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6); 
+}
+
+footer .lockup a {
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  margin-right: 30px; 
+}
+
+footer .lockup a:hover {
+  color: rgba(255, 255, 255, 1); 
+}
+
+@media only screen and (max-width: 948px) {
+  .content-wrap {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+    
+  .content-wrap nav, .content-wrap p {
+    width: 100%;
+    text-align: center !important;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 552px) {
+  nav {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+    
+  .content-wrap nav, .content-wrap p {
+    width: 100%;
+    text-align: center !important;
+    padding: 20px;
+  }
+}
+
+/* BLOG SECTION CSS */
+
+#jsonContent, .blog {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.blog-title {
+  font-size: 1.2rem;
+}
+
+.blog-post {
+  width: 33%;
+  min-width: 360px;
+  margin: 20px;
+  flex: 1;
+  position: relative;
+  border-top: 1px solid #ccc;
+  padding: 25px;
+}
+
+.blog-post:before, .blog-post:after {
+  content: "";
+  position: absolute;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ccc), to(transparent));
+  background-image: -webkit-linear-gradient(#ccc, transparent);
+  background-image: -moz-linear-gradient(#ccc, transparent);
+  background-image: -o-linear-gradient(#ccc, transparent);
+  background-image: linear-gradient(#ccc, transparent);
+  top: -1px;
+  bottom: -1px;
+  width: 1px;
+}
+.blog-post:before {
+  left: -1px;
+}
+.blog-post:after {
+  right: -1px;
+}
+
+
+/* END OF BLOG SECTION CSS */
 
 @media only screen and (min-width: 220px) {
   .about-lock {
-    margin: auto; }
-    .about-lock .face-img {
+    margin: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-lock div {
+    margin: 10px;
+  }
+    
+  .about-lock .face-img {
       height: 180px;
       width: 180px;
       display: -webkit-box;
@@ -735,15 +870,21 @@ footer {
       display: -moz-flex;
       display: -ms-flexbox;
       display: flex;
+      justify-content: space-around;
+      align-items: center;
       margin: auto;
       border-radius: 60%;
-      background: url(../img/face.JPG) no-repeat; }
+      background: url(../img/face.jpg) no-repeat;
+      background-size: cover;
+    }
     .about-lock .face1-img {
       height: 180px;
       width: 180px;
       border-radius: 50%;
-      background: url(../img/android.JPG);
-      margin: auto; }
+      background: url(../img/crypto.jpg);
+      margin: auto; 
+      background-size: contain;
+    }
     .about-lock .flip-container {
       -webkit-perspective: 1000;
               perspective: 1000;
@@ -754,7 +895,8 @@ footer {
       box-ordinal-group: 3;
       -moz-order: 3;
       order: 3;
-      -ms-flex-order: 3; }
+      -ms-flex-order: 3; 
+    }
       .about-lock .flip-container:hover .flipper, .about-lock .flip-container.hover .flipper {
         -webkit-transform: rotateY(180deg);
                 transform: rotateY(180deg); }
@@ -766,7 +908,8 @@ footer {
       transition: 0.6s;
       -webkit-transform-style: preserve-3d;
               transform-style: preserve-3d;
-      position: relative; }
+      position: relative; 
+    }
     .about-lock .front, .about-lock .back {
       -webkit-backface-visibility: hidden;
               backface-visibility: hidden;
@@ -904,7 +1047,7 @@ footer {
 .bar-blog {
   width: 250px;
   height: 0px;
-  margin: 20px auto 20px;
+  margin: 40px auto 40px;
   border-top: 4px solid #303e49; }
 
 .blog-end {
@@ -1287,7 +1430,7 @@ form {
   .post-meta {
     margin-bottom: 0px;
     padding-bottom: 20px;
-    padding-left: 10px; }
+    }
   .post-link {
     display: block;
     font-size: 40px; }
@@ -1356,7 +1499,7 @@ form {
 
 #h_small {
   height: 170px;
-  background: url(../img/galway2.jpg) center center;
+  background: url(../img/galway.jpg) center center;
   background-size: cover; }
   #h_small #nav_small {
     float: right;
