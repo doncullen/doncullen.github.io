@@ -424,6 +424,15 @@ th {
 .icon-git-square:before {
   content: "\f1d2"; }
 
+#bioicons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
 @font-face {
   font-family: "Flaticon";
   src: url("0-tools/flaticon.eot");
